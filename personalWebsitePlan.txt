@@ -1,0 +1,55 @@
+# Personal Website — Plan & Decision Log
+
+## Goal
+Create a personal website hosted on GitHub Pages using a modern template.
+
+---
+
+## Decisions & Justifications
+
+### Hosting: GitHub Pages
+- Free for public repositories, no cost ever.
+- Repo: BillMentzinis.github.io (user/org Pages site, served at https://billmentzinis.github.io)
+- User/org Pages repos are the gold standard — no subdirectory path, clean root URL.
+
+### Framework: Astro
+Chosen over Jekyll for the following reasons:
+- Jekyll requires Ruby, which is painful to set up on Windows. Astro runs on Node.js, which is standard and Windows-friendly.
+- Astro's theme/template ecosystem is modern and actively maintained. Jekyll themes are mostly from 2015–2019 and look dated.
+- Better local development experience: hot reload, VS Code integration, clear error messages.
+- Easier to extend later (contact forms, animations, interactive components) without fighting the framework.
+- Jekyll's one advantage (native GitHub Pages build, no Actions needed) is negligible since GitHub Actions are free for public repos.
+
+### Build & Deployment: GitHub Actions
+- GitHub Actions are free for public repositories (unlimited minutes).
+- Required for Astro since the source files must be compiled into HTML/CSS/JS before GitHub Pages can serve them.
+- One-time workflow file setup (~20 lines of YAML), then automated forever: push code → Actions builds → site updates in ~1 minute.
+
+### Template: Astrofy
+- Chosen for having all three required sections built in: About, CV timeline, and Projects.
+- Supports dark mode out of the box — matches the preferred dark theme.
+- Most popular Astro personal site template with strong community support.
+
+### Site Sections
+- **About** — short bio, photo, social links (GitHub, LinkedIn, email)
+- **CV/Resume** — rendered on the page as a timeline + downloadable PDF
+- **Projects** — manually curated list (user chooses which GitHub repos to feature)
+
+### CV Format
+- PDF ready to include as a downloadable asset.
+- Also rendered on the site as a visual timeline using Astrofy's built-in CV section.
+
+### Projects Approach
+- Manually curated rather than auto-fetched from GitHub API.
+- User controls exactly which repos appear and can write custom descriptions.
+
+### Theme
+- Dark mode preferred.
+- Astrofy supports dark/light toggle; default will be set to dark.
+
+---
+
+## Choices Pending
+- Finalize which GitHub repos to feature as projects
+- Write bio/about text
+- Decide on social links to include
