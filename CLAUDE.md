@@ -36,4 +36,4 @@ Content is data-driven: projects live in `src/data/projects.ts`; CV certificatio
 - Downloadable PDF resume goes in `public/` and is linked from the CV page.
 
 ## Decision Log
-All architectural decisions and their justifications live in `personalWebsitePlan.txt`. Update that file whenever a significant choice is made — include what was decided, why, and any alternatives that were considered.
+All architectural decisions and their justifications live in `plans/personalWebsitePlan.txt` (local only, gitignored). Update that file whenever a significant choice is made — include what was decided, why, and any alternatives that were considered.

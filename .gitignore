@@ -23,3 +23,6 @@ Thumbs.db
 *.pdf
 # Served CV download (exception to the rule above)
 !public/CV_Mentzinis_Vasileios.pdf
+
+# Local planning notes (not tracked)
+plans/
