@@ -53,3 +53,22 @@ Chosen over Jekyll for the following reasons:
 - Finalize which GitHub repos to feature as projects
 - Write bio/about text
 - Decide on social links to include
+
+---
+
+## 2026-11-16 — November update (see WEBSITE_UPDATE_PLAN.md)
+
+### Positioning
+- Decided: "ML Engineer & MSc CS Student" heading, tagline "I build real-time computer vision
+  models for the edge and reinforcement learning systems for 6G networks.", and one shared bio
+  on Home and CV, worded to match cv_11_2026.tex (role: "ML Engineer and Research Associate").
+- Dropped the ISAC mention from the draft bio; it is not in the CV and not a core focus.
+
+### Template leftovers in the site shell
+- Footer: copyright now in Bill's name; kept a short "Built with Astro and the Astrofy template"
+  credit (optional under MIT, kept as good form). Alternative considered: removing the credit.
+- Mobile header shows "Bill Mentzinis" instead of the template author's name.
+- Social preview image (public/social_img.webp) replaced with a custom 1200x630 banner
+  (photo, name, title, tagline). Alternative considered: reusing pfp1.jpg, rejected because
+  link previews crop square photos poorly.
+- robots.txt sitemap now points at billmentzinis.github.io; package name set to personal-website.
