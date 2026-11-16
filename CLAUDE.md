@@ -32,7 +32,7 @@ Content is data-driven: add a Markdown file to the right collection folder and i
 
 ## Key Conventions
 - Dark mode is the default; Astrofy's theme toggle is built in — don't override it globally.
-- Projects are manually curated (not auto-fetched from GitHub API) — add entries in `src/content/projects/`.
+- Projects are manually curated (not auto-fetched from GitHub API) — edit the `PROJECTS` array in `src/data/projects.ts`; it feeds both the home page (first 3) and `/projects`.
 - Downloadable PDF resume goes in `public/` and is linked from the CV page.
 
 ## Decision Log

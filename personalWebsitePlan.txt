@@ -72,3 +72,10 @@ Chosen over Jekyll for the following reasons:
   (photo, name, title, tagline). Alternative considered: reusing pfp1.jpg, rejected because
   link previews crop square photos poorly.
 - robots.txt sitemap now points at billmentzinis.github.io; package name set to personal-website.
+
+### Project cards: single source
+- Decided: project cards live in src/data/projects.ts (PROJECTS array, HOME_PROJECT_COUNT = 3),
+  rendered by src/components/ProjectList.astro on both / and /projects.
+- Why: the same cards were hard-coded in index.astro and projects.astro and would drift.
+- Alternatives considered: an Astro content collection (src/content/projects/*.md), heavier than
+  needed for four short entries; keeping the duplicated markup, rejected because of drift.
