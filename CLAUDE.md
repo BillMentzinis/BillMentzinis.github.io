@@ -22,13 +22,13 @@ npm run preview  # preview the production build locally
 ## Architecture
 Astrofy follows standard Astro conventions:
 - `src/pages/` — file-based routing; `index.astro` = home/about, `cv.astro`, `projects/` etc.
-- `src/content/` — Markdown/MDX content collections (blog posts, project entries, CV timeline entries)
+- `src/data/projects.ts` — project cards (feeds Home and `/projects`)
 - `src/components/` — reusable `.astro` components (nav, footer, cards, timeline)
 - `src/layouts/` — page shell layouts wrapping page content
 - `public/` — static assets served as-is (images, fonts, downloadable PDF resume)
 - `src/config.ts` — site-wide config: name, bio, social links, nav items
 
-Content is data-driven: add a Markdown file to the right collection folder and it appears on the page automatically. No need to edit component files for routine content updates.
+Content is data-driven: projects live in `src/data/projects.ts`; CV certifications and skills are arrays at the top of `src/pages/cv.astro`. The template's blog, store and services sections were removed (Nov 2026).
 
 ## Key Conventions
 - Dark mode is the default; Astrofy's theme toggle is built in — don't override it globally.

@@ -87,3 +87,11 @@ Chosen over Jekyll for the following reasons:
   would never be committed or deployed.
 - Deleted the stale root-level CV_Mentzinis_Vasileios_2026.pdf (untracked, never served).
 - Filename has no date so links stay stable; replace the file in place when the CV changes.
+
+### Template sections removed
+- Decided: delete the Astrofy blog, store and services sections (pages, demo content, content
+  collection config, layouts, RSS feed, sidebar RSS icon, unused helpers and @astrojs/rss).
+- Why: they were hidden from navigation but still built and reachable by URL with lorem ipsum.
+- Alternative considered: keep an empty, hidden blog for future posts; rejected as there are no
+  plans to blog soon. It can be re-added from the Astrofy template if needed.
+- Kept: the commented-out Contact nav entry (hidden deliberately in 6fdb326).
