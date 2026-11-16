@@ -79,3 +79,11 @@ Chosen over Jekyll for the following reasons:
 - Why: the same cards were hard-coded in index.astro and projects.astro and would drift.
 - Alternatives considered: an Astro content collection (src/content/projects/*.md), heavier than
   needed for four short entries; keeping the duplicated markup, rejected because of drift.
+
+### Downloadable CV
+- Decided: compiled cv_11_2026.pdf is served as public/CV_Mentzinis_Vasileios.pdf, with a
+  "Download CV (PDF)" button on the CV page header and on the home page.
+- .gitignore ignores *.pdf, so an explicit exception was added for that one file; otherwise it
+  would never be committed or deployed.
+- Deleted the stale root-level CV_Mentzinis_Vasileios_2026.pdf (untracked, never served).
+- Filename has no date so links stay stable; replace the file in place when the CV changes.
