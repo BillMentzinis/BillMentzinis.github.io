@@ -1,6 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
+
+const certifications = [
+  { name: "6G Megatrends and Technology Enablers", issuer: "IEEE Communications Society", date: "April 2026" },
+  { name: "O-RAN Architecture and the RAN Intelligent Controller (RIC)", issuer: "IEEE Communications Society", date: "March 2026" },
+  { name: "GenAI Meets 5G & 6G: Unlocking the Future of Networks", issuer: "IEEE Communications Society", date: "October 2025" },
+  { name: "The Data Science Course: Complete Data Science Bootcamp", issuer: "Udemy", date: "March 2025" },
+  { name: "AWS Knowledge: Cloud Essentials", issuer: "Amazon Web Services", date: "April 2024" },
+];
+
+const skillGroups = [
+  { name: "ML / DL / RL", skills: ["PyTorch", "Stable-Baselines3 (PPO, SAC)", "Gymnasium", "Hugging Face Transformers", "PEFT (LoRA)", "scikit-learn", "Darts"] },
+  { name: "Computer Vision", skills: ["Ultralytics YOLO", "RT-DETR", "TensorRT", "ONNX", "early/mid sensor fusion"] },
+  { name: "LLM / RAG", skills: ["Ollama", "ChromaDB", "sentence-transformers", "Streamlit"] },
+  { name: "Networking / 6G", skills: ["O-RAN", "RAN Intelligent Controller (RIC)", "5G/6G system design"] },
+  { name: "Data & BI", skills: ["Azure Synapse", "Power BI", "Tableau", "SSRS", "pandas", "NumPy", "SQL"] },
+  { name: "Languages", skills: ["Python", "C/C++", "SQL", "JavaScript", "R"] },
+  { name: "Tools & MLOps", skills: ["Docker", "GitHub Actions", "pytest", "Git", "Linux", "LaTeX"] },
+];
 ---
 
 <BaseLayout title="CV" sideBarActiveItemID="cv">
@@ -40,26 +58,48 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       title="ML Engineer | Research Associate"
       subtitle="Mar 2025 – Present | SCAN Lab, Dept. of Informatics & Telecommunications, NKUA, Athens, Greece"
     >
-      Designing and evaluating RL/DRL-based AI systems for autonomous orchestration and resource management
-      of 6G mobile networks within an EU-funded project. Developing and integrating computer vision pipelines
-      for real-time drone-based applications.
+      <ul class="list-disc ml-5 grid gap-1 text-left">
+        <li>
+          Engineered deep Reinforcement Learning agents (PPO/SAC via Stable-Baselines3 &amp; Gymnasium) for
+          autonomous resource management and network slicing in O-RAN-compliant 6G architectures, as part of an
+          EU-funded research project.
+        </li>
+        <li>
+          Evaluated and benchmarked DRL policies against traditional optimisation baselines, analysing convergence,
+          reward stability, and resource-utilisation trade-offs across simulated 6G network environments.
+        </li>
+        <li>
+          Built real-time aerial object detection pipelines with YOLOv8 (Ultralytics) and RT-DETRv2, exporting
+          models to FP16 TensorRT for low-latency edge inference.
+        </li>
+      </ul>
     </TimeLineElement>
     <TimeLineElement
       title="BI & Analytics Intern"
       subtitle="Dec 2024 – Mar 2025 | OPAP S.A., Athens, Greece"
     >
-      Built and maintained Azure Synapse Pipelines for end-to-end ETL processes and data transformation.
-      Designed and delivered BI reports in Power BI, SSRS, and Tableau, communicating data-driven insights
-      to both technical and non-technical stakeholders. Wrote and optimised complex SQL queries to support
-      analytical and reporting workloads.
+      <ul class="list-disc ml-5 grid gap-1 text-left">
+        <li>Built and maintained Azure Synapse Pipelines for end-to-end ETL processes and data transformation at scale.</li>
+        <li>
+          Designed and delivered BI reports in Power BI, SSRS, and Tableau, communicating data-driven insights to both
+          technical and non-technical stakeholders.
+        </li>
+        <li>Wrote and optimised complex SQL queries to support analytical and reporting workloads.</li>
+      </ul>
     </TimeLineElement>
     <TimeLineElement
       title="IT Support / Systems Administrator Intern"
       subtitle="Jul 2024 – Oct 2024 | STIQ, Athens, Greece"
     >
-      Performed EDA and data cleaning on sales datasets to support downstream analytics. Tested statistical
-      and ML forecasting models using Python (Darts library). Conducted time series analysis and forecasting
-      using R (fpp3).
+      <ul class="list-disc ml-5 grid gap-1 text-left">
+        <li>
+          Conducted EDA and data cleaning on sales datasets, resolving data quality issues to support reliable
+          downstream analytics.
+        </li>
+        <li>
+          Evaluated statistical and ML forecasting models in Python (Darts) and R (fpp3) across multiple time horizons.
+        </li>
+      </ul>
     </TimeLineElement>
   </div>
 
@@ -68,34 +108,28 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li>The Data Science Course: Complete Data Science Bootcamp — Udemy</li>
-    <li>AWS Knowledge: Cloud Essentials — Amazon Web Services</li>
-    <li>IEEE Certificates Program (CEU/PDH) — IEEE</li>
+    {
+      certifications.map((cert) => (
+        <li>
+          {cert.name} — {cert.issuer} <span class="opacity-70">({cert.date})</span>
+        </li>
+      ))
+    }
   </ul>
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Skills</div>
   </div>
 
-  <ul class="list-disc md:columns-3 columns-2 mx-6 mb-10">
-    <li>Python</li>
-    <li>C/C++</li>
-    <li>SQL</li>
-    <li>JavaScript</li>
-    <li>PyTorch</li>
-    <li>Stable-Baselines3</li>
-    <li>Gym</li>
-    <li>scikit-learn</li>
-    <li>Darts</li>
-    <li>Ultralytics / YOLO</li>
-    <li>RT-DETR</li>
-    <li>Azure Synapse</li>
-    <li>Power BI</li>
-    <li>Tableau</li>
-    <li>SSRS</li>
-    <li>pandas</li>
-    <li>NumPy</li>
-  </ul>
+  <div class="mx-6 mb-10 grid gap-3">
+    {
+      skillGroups.map((group) => (
+        <div>
+          <span class="font-semibold">{group.name}:</span> {group.skills.join(", ")}
+        </div>
+      ))
+    }
+  </div>
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Languages</div>
