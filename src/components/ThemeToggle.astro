@@ -1,0 +1,35 @@
+---
+// Sun/moon button that switches between the dark theme (default) and the light "lofi" theme.
+// The initial theme is applied by the inline script in BaseLayout to avoid a flash on load.
+const { class: className = "" } = Astro.props;
+---
+
+<button type="button" class={`btn btn-ghost btn-square btn-sm ${className}`} data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">
+  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+  </svg>
+  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+
+<style is:global>
+  [data-theme="dark"] .theme-icon-moon,
+  [data-theme="lofi"] .theme-icon-sun {
+    display: none;
+  }
+</style>
+
+<script>
+  // Module scripts run once per session, so delegate clicks to survive view-transition swaps.
+  document.addEventListener("click", (event) => {
+    const target = event.target as Element | null;
+    if (!target?.closest("[data-theme-toggle]")) return;
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "lofi" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  });
+</script>

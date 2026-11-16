@@ -95,3 +95,19 @@ Chosen over Jekyll for the following reasons:
 - Alternative considered: keep an empty, hidden blog for future posts; rejected as there are no
   plans to blog soon. It can be re-added from the Astrofy template if needed.
 - Kept: the commented-out Contact nav entry (hidden deliberately in 6fdb326).
+
+### Theme: dark by default with a toggle
+- Found during the Task 7 check: the template hard-coded the light "lofi" theme and had no
+  toggle, so the earlier "default will be set to dark" decision was never implemented.
+- Decided: dark (daisyUI "dark") by default, light = "lofi" (the previous look), with a sun/moon
+  toggle in the sidebar footer and the mobile header. The choice is saved in localStorage and
+  applied by an inline head script before paint and after each view-transition swap.
+- Alternatives considered: dark only (no toggle); follow the OS colour scheme; keep light only.
+
+### Summary of the November 2026 update (Tasks 0-7)
+- Task 0: new positioning line and bio (ISAC dropped). Template branding removed from the shell.
+- Task 1-2: single project data source; CIFAKE added; order CIFAKE, RAG, Fusion, MNIST.
+- Task 3-4: CV page matches cv_11_2026.tex; downloadable PDF added.
+- Task 5: template blog, store and services removed.
+- Task 6: skipped for now; project cards still use the placeholder image /post_img.webp.
+- Task 7: build, page screenshots (desktop and mobile, dark and light), link and PDF checks done.

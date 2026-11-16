@@ -31,7 +31,7 @@ Astrofy follows standard Astro conventions:
 Content is data-driven: projects live in `src/data/projects.ts`; CV certifications and skills are arrays at the top of `src/pages/cv.astro`. The template's blog, store and services sections were removed (Nov 2026).
 
 ## Key Conventions
-- Dark mode is the default; Astrofy's theme toggle is built in — don't override it globally.
+- Dark mode (daisyUI `dark`) is the default; light is `lofi`. `src/components/ThemeToggle.astro` switches them and saves the choice in localStorage; the inline script in `BaseLayout.astro` applies it before paint and after view-transition swaps.
 - Projects are manually curated (not auto-fetched from GitHub API) — edit the `PROJECTS` array in `src/data/projects.ts`; it feeds both the home page (first 3) and `/projects`.
 - Downloadable PDF resume goes in `public/` and is linked from the CV page.
 
